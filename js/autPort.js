@@ -1,10 +1,7 @@
-let AUTH_CODE;
 const AUTH_URL = 'https://api.intra.42.fr/oauth/authorize';
 const TOKEN_URL = 'https://api.intra.42.fr/oauth/token';
 const SCOPES = 'public profile projects tig'
-const clientId = document.getElementById('client-id').innerText.trim();
-const clientSecret = document.getElementById('client-secret').innerText.trim();
-const redirectUri = document.getElementById('redirect-uri').innerText.trim();
+var AUTH_CODE;
 
 function login()
 {
@@ -13,10 +10,11 @@ function login()
 
 function authenticateUser()
 {
-	const currUrl = window.location.href;
-	const urlParams = new URLSearchParams(new URL(currUrl).search);
-	AUTH_CODE = urlParams.get('code') ?? '0';
-	if (AUTH_CODE != '0')
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	AUTH_CODE = urlParams.get('code');
+
+	if (AUTH_CODE)
 	{
 		$.ajax({
 			type: "POST",
@@ -32,11 +30,10 @@ function authenticateUser()
 				localStorage.setItem('access_token', response.access_token);
 			},
 			error: function(xhr, status, error) {
-				console.log("Error: " + error);
+				console.log("Error: " + error + "| Status: " + status);
 			}
-		});
+		})
 	}
-	else console.log("No code.");
 }
 
 authenticateUser();
