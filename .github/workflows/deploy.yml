@@ -1,0 +1,30 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: cheking out code
+      uses: actions/checkout@v2
+    - name: setting up dependencies
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: installing dependencies
+      run: npm install
+    - name: building the app
+      run: npm run build
+    - name: setting up env variables
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+    - name: deploying to main branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GIT_TOKEN }}
+        publish_dir: ./dist
+        force_orphan: true
