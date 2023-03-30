@@ -10,12 +10,11 @@ jobs:
     - name: checking out code
       uses: actions/checkout@v2
     - name: setting up env variables
+      run: 'echo "$REDIRECT_URI"'
       env:
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
-      run: |
-        echo REDIRECT_URI=$REDIRECT_URI
     - name: deploying to main branch
       uses: peaceiris/actions-gh-pages@v3
       with:
