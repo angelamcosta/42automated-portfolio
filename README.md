@@ -14,7 +14,7 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 ## Credits
 
-This project was created by Angela Lima, [angelamcostalima@icloud.com].
+This project was created by Angela Lima, [angelamcostalima@icloud.com](angelamcostalima@icloud.com).
 
 ## License
 
