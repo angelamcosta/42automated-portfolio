@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a hackathon submission for the Easter Hackathon event at 42 Lisbon. It is an automated personal portfolio for each 42 student, using the 42 API to fetch user information and display it on a user-friendly website.
+This project is a hackathon submission for the [Easter Hackathon](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/Easter_Hackathon_-_Instructions.pdf) event at 42 Lisbon. It is an automated personal portfolio for each 42 student, using the 42 API to fetch user information and display it on a user-friendly website.
 
 ## Usage
 
