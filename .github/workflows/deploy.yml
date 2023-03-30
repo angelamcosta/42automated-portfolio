@@ -10,7 +10,6 @@ jobs:
     - name: checking out code
       uses: actions/checkout@v2
     - name: setting up env variables
-      run: echo "setting up env variables"
       env:
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
