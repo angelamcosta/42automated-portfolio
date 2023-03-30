@@ -1,4 +1,4 @@
-# 42 Automated Portfolio
+# 🧑‍🚀 42 Automated Portfolio
 
 ## Description
 
