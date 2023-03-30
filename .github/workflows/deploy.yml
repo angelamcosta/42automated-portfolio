@@ -8,15 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checking out code
-      uses: actions/checkout@v2
-    - name: setting up dependencies
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - name: installing dependencies
-      run: npm install
-    - name: building the app
-      run: npm run build
+      uses: actions/checkout@v2.5.2
     - name: setting up env variables
       run: echo "setting up env variables"
       env:
