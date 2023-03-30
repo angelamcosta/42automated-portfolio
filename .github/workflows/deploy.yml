@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checking out code
-      uses: actions/checkout@v2.5.2
+      uses: actions/checkout@v2
     - name: setting up env variables
       run: echo "setting up env variables"
       env:
