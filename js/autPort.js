@@ -2,9 +2,9 @@ let AUTH_CODE;
 const AUTH_URL = 'https://api.intra.42.fr/oauth/authorize';
 const TOKEN_URL = 'https://api.intra.42.fr/oauth/token';
 const SCOPES = 'public profile projects tig'
-const CLIENT_ID = window.MY_APP_CONFIG.clientId;
-const CLIENT_SECRET = window.MY_APP_CONFIG.clientSecret;
-const REDIRECT_URI = window.MY_APP_CONFIG.redirectUri;
+var CLIENT_ID = "${{ secrets.CLIENT_ID }}";
+var CLIENT_SECRET = "${{ secrets.CLIENT_SECRET }}";
+var REDIRECT_URI = "${{ secrets.REDIRECT_URI }}";
 
 function login()
 {
