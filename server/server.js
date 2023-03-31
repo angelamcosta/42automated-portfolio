@@ -45,13 +45,14 @@ app.get('/search/:intraUser', async (req, res) => {
 
 		res.render('views/user', { user: response.data });
 	} catch (error) {
-		if (error.response && error.response.status === 401) {
+		if (error.code == 'ERR_BAD_REQUEST')
+			res.render('index', { errormessage: error.code });
+		else if (error.response && error.response.status === 401) {
 			console.log('Access token expired');
 			alert('Access token expired');
 			res.clearCookie('access_token');
 			return res.redirect('/callback');
 		}
-		res.status(500).send('An error occurred');
 	}
 })
 
