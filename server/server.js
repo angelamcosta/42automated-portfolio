@@ -18,7 +18,7 @@ app.get('/callback', async (req, res) => {
 		});
 
 		res.cookie('access_token', response.data.access_token);
-		res.redirect('/') 
+		res.redirect('/')
 	} catch (error) {
 		console.error(error);
 		res.status(500).send('An error occurred');
@@ -38,7 +38,12 @@ app.get('/search/:intraUser', async (req, res) => {
 
 		res.send(response.data);
 	} catch (error) {
-		console.error(error);
+		if (error.response && error.response.status === 401) {
+			console.log('Access token expired');
+			alert('Access token expired');
+			res.clearCookie('access_token');
+			return res.redirect('/callback');
+		}
 		res.status(500).send('An error occurred');
 	}
 })
