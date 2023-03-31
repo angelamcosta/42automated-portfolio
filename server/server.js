@@ -43,9 +43,8 @@ app.get('/search/:intraUser', async (req, res) => {
 			}
 		});
 
-		res.render('views/user', { user: response.data });
+		res.render('user', { user: response.data });
 	} catch (error) {
-		console.log(error.config.data);
 		if (error.response && error.response.status === 401) {
 			console.log('Access token expired');
 			res.clearCookie('access_token');
