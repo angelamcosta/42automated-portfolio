@@ -69,6 +69,12 @@ To get started with 42 Automated Portfolio, follow these steps:
 
 To use the portfolio site, simply enter a 42 student's login or name into the search bar. The site will fetch the user's information from the 42 API and display it on the page.
 
+## Example Screenshot
+
+This screenshot shows an example of the app in action. In this particular view, a porfile if shown after a successful search. 
+
+![Example Screenshot](files/screenshot.png/)
+
 ## Contributing
 
 If you would like to contribute to this project, feel free to fork the repository and submit a pull request. Please ensure that your code is well-documented and follows the project's coding standards.
