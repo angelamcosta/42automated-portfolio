@@ -8,42 +8,100 @@
 <body>
 	<%- include ('components/header.ejs') %>
 
-		<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-			<div class="card p-4">
-				<div class=" image d-flex flex-column justify-content-center align-items-center"> 
-					<button	class="btn"> 
-						<img src=<%= user.image.link %> height="100" />
-					</button>
-					<span class="name mt-3">
-						<%= user.displayname %>
-					</span> 
-					<span class="idd">@<%= user.login %></span>
-					<div class="d-flex flex-row justify-content-center align-items-center gap-2">
-						<span class="idd1">
-							<%= user.email %>
-						</span>
-						<span>
-							<i class="fa fa-copy"></i>
-						</span> 
-					</div>
-					<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
-					<div class="text mt-3">
-						<% for(let i = 0; i < user.cursus_users[0].skills.length; i++) { %>
-							<li>
-								<span>
-									<%= user.cursus_users[0].skills[i].name %> - Level <%= user.cursus_users[0].skills[i].level %>
+	<div class="container flex">
+		<div class="row g-5">
+			<div class="col-md-5 col-lg-4 order-md-last">
+				<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+					<div class="card p-4">
+						<div class=" image d-flex flex-column justify-content-center align-items-center">
+							<button class="btn">
+								<img src=<%=user.image.link %> height="100" />
+							</button>
+							<span class="name mt-3">
+								<%= user.displayname %>
+							</span>
+							<span class="idd">@<%= user.login %></span>
+							<div class="d-flex flex-row justify-content-center align-items-center gap-2">
+								<span class="idd1">
+									<%= user.email %>
 								</span>
-							</li>
-						<% } %>
-					</div>
-					<div class=" px-2 rounded mt-4 date ">
-						<span class="join">Joined at <%= new Date(user.cursus_users[1].cursus.created_at).toLocaleString('en-US', { month: 'long', day: 'numeric' }) %></span>
+								<span>
+									<i class="fa fa-copy"></i>
+								</span>
+							</div>
+							<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
+							<div class="text mt-3">
+								<% for (let i = user.projects_users.length - 1; i >= 0; i--) { %>
+									<% if (user.projects_users[i].cursus_ids[0] == 21) { %>
+										<li>
+											<span>
+												<%= user.projects_users[i].project.name %>
+											</span>
+											<% if (user.projects_users[i]['validated?']) { %>
+												<span class="text-success">
+													<%= user.projects_users[i].status %>
+												</span>
+											<% } %>
+										</li>
+									<% } %>
+								<% } %>
+							</div>
+							<div class=" px-2 rounded mt-4 date ">
+								<span class="join">Joined at <%= new Date(user.cursus_users[1].begin_at).toLocaleString('en-US', {	month: 'long' , day: 'numeric' }) %></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="col-md-7 col-lg-8">
+				<h4 class="mb-3">Student data</h4>
+				<form class="needs-validation" novalidate="">
+					<div class="row g-3">
+						<div class="col-4">
+							<label for="username" class="form-label">User full name</label>
+							<div class="input-group">
+								<input disabled type="text" class="form-control disabled" id="username" placeholder="<%= user.usual_full_name %>"
+									required="">
+							</div>
+						</div>
 
-		<%- include ('components/footer.ejs') %>
+						<div class="col-2">
+							<label for="username" class="form-label">Username</label>
+							<div class="input-group has-validation">
+								<span class="input-group-text">@</span>
+								<input disabled type="text" class="form-control " id="username" placeholder="<%= user.login %>"
+									required="">
+							</div>
+						</div>
+
+						<div class="col-2">
+							<label for="campus" class="form-label">Campus</label>
+							<div class="input-group has-validation">
+								<input disabled type="text" class="form-control " id="campus" placeholder="<%= user.campus[0].name %>"
+									required="">
+							</div>
+						</div>
+
+						<div class="col-4">
+							<label for="email" class="form-label">Email <span
+									class="text-body-secondary">(Optional)</span></label>
+							<input disabled type="email" class="form-control" id="email" placeholder="<%= user.email %>">
+						</div>
+
+						<% for(let i=0; i < user.cursus_users[1].skills.length; i++) { %>
+							
+							<div class="col-4">
+								<label for="address" class="form-label"><%= user.cursus_users[1].skills[i].name %></label>
+								<input disabled type="text" class="form-control" id="address" placeholder="<%= user.cursus_users[1].skills[i].level %>" required="">
+							</div>
+						<% } %>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+	<%- include ('components/footer.ejs') %>
 </body>
 
 </html>
