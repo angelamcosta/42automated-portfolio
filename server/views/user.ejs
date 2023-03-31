@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<%- include ('components/head.ejs') %>
+</head>
+
+<body>
+	<%- include ('components/header.ejs') %>
+
+		<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+			<div class="card p-4">
+				<div class=" image d-flex flex-column justify-content-center align-items-center"> 
+					<button	class="btn"> 
+						<img src=<%=user.image.link %> height="100" />
+					</button>
+					<span class="name mt-3">
+						<%= user.displayname %>
+					</span> 
+					<span class="idd">@<%= user.login %></span>
+					<div class="d-flex flex-row justify-content-center align-items-center gap-2">
+						<span class="idd1">
+							<%= user.email %>
+						</span>
+						<span><i class="fa fa-copy"></i></span> 
+					</div>
+					<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
+					<div class="text mt-3">
+						<% for(let i = 0; i < user.cursus_users[0].skills.length; i++) { %>
+							<li>
+								<span>
+									<%= user.cursus_users[0].skills[i].name %> - Level <%= user.cursus_users[0].skills[i].level %>
+								</span>
+							</li>
+						<% } %>
+					</div>
+					<div class=" px-2 rounded mt-4 date "> <span class="join">Joined at <%= new Date(user.cursus_users[1].cursus.created_at).toLocaleString('en-US', { month: 'long', day: 'numeric' }) %></span> </div>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<%- include ('components/footer.ejs') %>
+</body>
+
+</html>

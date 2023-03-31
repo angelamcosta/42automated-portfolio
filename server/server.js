@@ -6,8 +6,15 @@ const app = express();
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
 
-app.use(express.static('../public'));
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/../public'));
+app.engine('ejs', require('ejs').__express);
+app.set('views', __dirname + '/views');
 app.use(cookieParser());
+
+app.get('/', (req, res) => {
+	res.render('index');
+})
 
 app.get('/callback', async (req, res) => {
 	try {
@@ -18,7 +25,7 @@ app.get('/callback', async (req, res) => {
 		});
 
 		res.cookie('access_token', response.data.access_token);
-		res.redirect('/')
+		res.render('index');
 	} catch (error) {
 		console.error(error);
 		res.status(500).send('An error occurred');
@@ -36,7 +43,7 @@ app.get('/search/:intraUser', async (req, res) => {
 			}
 		});
 
-		res.send(response.data);
+		res.render('views/user', { user: response.data });
 	} catch (error) {
 		if (error.response && error.response.status === 401) {
 			console.log('Access token expired');
