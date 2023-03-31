@@ -1,5 +1,12 @@
 # 🧑‍🚀 42 Automated Portfolio
 
+<div align=center>
+  
+  [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-by-codebabes.svg)](https://forthebadge.com)
+  
+  <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/angelamcosta/42automated-portfolio" /> <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/angelamcosta/42automated-portfolio" /> <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/angelamcosta/42automated-portfolio" /> <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/angelamcosta/42automated-portfolio" /> <img alt="Github License" src="https://img.shields.io/github/license/angelamcosta/42automated-portfolio" /> <a href="https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/838a8dca-4670-4b62-8af7-6c3f9e085c03"><img src="https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/838a8dca-4670-4b62-8af7-6c3f9e085c03.svg" alt="wakatime"></a>
+</div>
+
 ## Description
 
 This project is a hackathon submission for the [Easter Hackathon](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/Easter_Hackathon_-_Instructions.pdf) event at 42 Lisbon. It is an automated personal portfolio for each 42 student, using the 42 API to fetch user information and display it on a user-friendly website.
