@@ -22,7 +22,9 @@
 						<span class="idd1">
 							<%= user.email %>
 						</span>
-						<span><i class="fa fa-copy"></i></span> 
+						<span>
+							<i class="fa fa-copy"></i>
+						</span> 
 					</div>
 					<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
 					<div class="text mt-3">
@@ -34,12 +36,12 @@
 							</li>
 						<% } %>
 					</div>
-					<div class=" px-2 rounded mt-4 date "> <span class="join">Joined at <%= new Date(user.cursus_users[1].cursus.created_at).toLocaleString('en-US', { month: 'long', day: 'numeric' }) %></span> </div>
+					<div class=" px-2 rounded mt-4 date ">
+						<span class="join">Joined at <%= new Date(user.cursus_users[1].cursus.created_at).toLocaleString('en-US', { month: 'long', day: 'numeric' }) %></span>
+					</div>
 				</div>
 			</div>
 		</div>
-
-		
 
 		<%- include ('components/footer.ejs') %>
 </body>
