@@ -72,4 +72,4 @@ This project was created by Angela Lima, [angelamcostalima@icloud.com](angelamco
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://github.com/angelamcosta/42automated-portfolio/blob/main/LICENSE).
