@@ -15,12 +15,16 @@ To get started with 42 Automated Portfolio, follow these steps:
 
 1. Clone the repository:
 
-	```git clone https://github.com/angelamcosta/42automated-portfolio.git```
+	```
+		git clone https://github.com/angelamcosta/42automated-portfolio.git
+	```
 
 2. Install the required dependencies:
 
 
-	```javascript npm install```
+	```javascript
+		npm install
+	```
 
 3. Set up environment variables
 
@@ -28,7 +32,9 @@ To get started with 42 Automated Portfolio, follow these steps:
 
 5. Start the development server:
 
-	```npm run start```
+	```javascript
+		npm run start
+	```
 
 6. Navigate to `http://localhost:3000` to view the application.
 
