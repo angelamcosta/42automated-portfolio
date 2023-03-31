@@ -9,7 +9,7 @@
 
 ## Description
 
-This project is a hackathon submission for the [Easter Hackathon](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/Easter_Hackathon_-_Instructions.pdf) event at 42 Lisbon. It is an automated personal portfolio for each 42 student, using the 42 API to fetch user information and display it on a user-friendly website.
+This project is a hackathon submission for the [Easter Hackathon](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/files/Easter_Hackathon_-_Instructions.pdf) event at 42 Lisbon. It is an automated personal portfolio for each 42 student, using the 42 API to fetch user information and display it on a user-friendly website.
 
 ## Features
 
@@ -73,7 +73,7 @@ To use the portfolio site, simply enter a 42 student's login or name into the se
 
 This screenshot shows an example of the app in action. In this particular view, a porfile if shown after a successful search. 
 
-![Example Screenshot](files/screenshot.png/)
+![Example Screenshot](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/files/screenshot.png)
 
 ## Contributing
 
