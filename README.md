@@ -9,6 +9,26 @@ This project is a hackathon submission for the [Easter Hackathon](https://raw.gi
 - Automatic generation of personalized portfolios based on a student's 42 profile.
 - Real-time updates of portfolio content based on changes to a student's 42 profile.
 
+## Creating an API key on the 42 API
+
+To use the 42 API, you will need an API key. Here's how you can create one:
+
+1. Go to the 42 API website.
+
+2. Log in with your 42 credentials.
+
+3. Click on your profile picture in the top right corner.
+
+4. Select Applications from the dropdown menu.
+
+5. Click on the New application button.
+
+6. Fill in the required information, such as the name of your application and the website URL.
+
+8. Click on the Create button to create your application.
+
+9. Your API key and secret will be displayed.
+
 ## Getting Started
 
 To get started with 42 Automated Portfolio, follow these steps:
@@ -26,7 +46,7 @@ To get started with 42 Automated Portfolio, follow these steps:
 		npm install
 	```
 
-3. Set up environment variables
+3. Set up environment variables using the key and secret you've created
 
 4. Enter your 42 API credentials in the `.env` file in the server folder (you have to create this file).
 
