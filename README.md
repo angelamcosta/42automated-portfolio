@@ -70,6 +70,8 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 This project was created by Angela Lima, [angelamcostalima@icloud.com](angelamcostalima@icloud.com).
 
+This project uses a modified version of the [bootstrap template](https://bbbootstrap.com/snippets/bootstrap-5-profile-card-animation-74461039) of [@upasana-chauhan33918](https://bbbootstrap.com/users/upasana-chauhan33918).
+
 ## License
 
 This project is licensed under the [MIT License](https://github.com/angelamcosta/42automated-portfolio/blob/main/LICENSE).
