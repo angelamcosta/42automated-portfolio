@@ -25,7 +25,7 @@ app.get('/callback', async (req, res) => {
 		});
 
 		res.cookie('access_token', response.data.access_token);
-		res.render('index');
+		res.render('index', { callback: true });
 	} catch (error) {
 		console.error(error);
 		res.status(500).send('An error occurred');
@@ -44,6 +44,29 @@ app.get('/search/:intraUser', async (req, res) => {
 		});
 
 		res.render('user', { user: response.data });
+	} catch (error) {
+		if (error.response && error.response.status === 401) {
+			console.log('Access token expired');
+			res.clearCookie('access_token');
+			return res.redirect('/callback');
+		}
+		else if (error.code == 'ERR_BAD_REQUEST')
+			res.render('index', { errormessage: error.code });
+	}
+})
+
+app.get('/projects/:name', async (req, res) => {
+	const name = req.params.name;
+	const access_token = req.cookies.access_token;
+
+	try {
+		const response = await axios.get(`https://api.intra.42.fr/v2/projects/${name}`, {
+			headers: {
+				Authorization: `Bearer ${access_token}`
+			}
+		});
+
+		res.send(response.data);
 	} catch (error) {
 		if (error.response && error.response.status === 401) {
 			console.log('Access token expired');
