@@ -81,7 +81,7 @@ To use the portfolio site, simply enter a 42 student's login or name into the se
 
 ## Example Screenshot
 
-This screenshot shows an example of the app in action. In this particular view, a porfile if shown after a successful search. 
+This screenshot shows an example of the app in action. In this particular view, a profile if shown after a successful search. 
 
 ![Example Screenshot](https://raw.githubusercontent.com/angelamcosta/42automated-portfolio/main/files/screenshot.png)
 
