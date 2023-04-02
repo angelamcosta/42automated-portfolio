@@ -1,4 +1,5 @@
 <% var errormessage; %>
+<% var callback; %>
 
 <!doctype html>
 <html lang="en">
@@ -9,6 +10,16 @@
 
 <body>
 	<%- include ('components/header.ejs') %>
+	
+	<% if (callback) { %>
+		<div class="d-flex justify-content-center">
+			<div class="alert alert-success alert-dismissible fade show w-50 center" role="alert">
+				<strong>Token aquired!</strong>
+					Your token was either refreshed or aquired! If you were making a search, please try again
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	<% } %>
 
 	<%- include ('components/center.ejs') %>
 

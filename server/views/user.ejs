@@ -1,3 +1,5 @@
+<% var user; %>
+
 <!doctype html>
 <html lang="en">
 
@@ -31,19 +33,12 @@
 							</div>
 							<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
 							<div class="text mt-3">
-								<% for (let i = user.projects_users.length - 1; i >= 0; i--) { %>
-									<% if (user.projects_users[i].cursus_ids[0] == 21) { %>
-										<li>
-											<span>
-												<%= user.projects_users[i].project.name %>
-											</span>
-											<% if (user.projects_users[i]['validated?']) { %>
-												<span class="text-success">
-													<%= user.projects_users[i].status %>
-												</span>
-											<% } %>
-										</li>
-									<% } %>
+								<% for(let i=0; i < user.cursus_users[1].skills.length; i++) { %>
+									<li>
+										<span>
+											<%= user.cursus_users[1].skills[i].name %>: <%= user.cursus_users[1].skills[i].level %>
+										</span>
+									</li>
 								<% } %>
 							</div>
 							<div class=" px-2 rounded mt-4 date ">
@@ -88,12 +83,15 @@
 							<input disabled type="email" class="form-control" id="email" placeholder="<%= user.email %>">
 						</div>
 
-						<% for(let i=0; i < user.cursus_users[1].skills.length; i++) { %>
-							
-							<div class="col-4">
-								<label for="address" class="form-label"><%= user.cursus_users[1].skills[i].name %></label>
-								<input disabled type="text" class="form-control" id="address" placeholder="<%= user.cursus_users[1].skills[i].level %>" required="">
-							</div>
+						<h4 class="col-12">Completed projects</h4>
+
+						<% for (let i = user.projects_users.length - 1; i >= 0; i--) { %>
+							<% if (user.projects_users[i].cursus_ids[0] == 21 && user.projects_users[i]['validated?']) { %>
+								<div class="col-4">
+									<label for="address" class="form-label">Project</label>
+									<input disabled type="text" class="form-control" id="address" placeholder="<%= user.projects_users[i].project.name %> <%= user.projects_users[i].status %>" required="">
+								</div>
+							<% } %>
 						<% } %>
 					</div>
 				</form>
