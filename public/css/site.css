@@ -96,3 +96,7 @@ hr .new1 {
 .date {
     background-color: #ccc
 }
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

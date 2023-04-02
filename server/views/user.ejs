@@ -1,4 +1,5 @@
 <% var user; %>
+<% var projects; %>
 
 <!doctype html>
 <html lang="en">
@@ -10,19 +11,20 @@
 <body>
 	<%- include ('components/header.ejs') %>
 
-	<div class="container flex">
+	<div class="container flex mb-5">
 		<div class="row g-5">
-			<div class="col-md-5 col-lg-4 order-md-last">
+			<div class="col-md-5 col-lg-4">
 				<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
 					<div class="card p-4">
 						<div class=" image d-flex flex-column justify-content-center align-items-center">
 							<button class="btn">
 								<img src=<%=user.image.link %> height="100" />
 							</button>
-							<span class="name mt-3">
+							<span class="name m-3 text-center">
 								<%= user.displayname %>
 							</span>
 							<span class="idd">@<%= user.login %></span>
+							<span class="idd1">Student at 42 <%= user.campus[0].name %></span>
 							<div class="d-flex flex-row justify-content-center align-items-center gap-2">
 								<span class="idd1">
 									<%= user.email %>
@@ -33,7 +35,8 @@
 							</div>
 							<span class="name mt-3">User level: <%= user.cursus_users[1].level %></span>
 							<div class="text mt-3">
-								<% for(let i=0; i < user.cursus_users[1].skills.length; i++) { %>
+								<p>Skills</p>
+								<% for (let i = 0; i < user.cursus_users[1].skills.length; i++) { %>
 									<li>
 										<span>
 											<%= user.cursus_users[1].skills[i].name %>: <%= user.cursus_users[1].skills[i].level %>
@@ -49,52 +52,39 @@
 				</div>
 			</div>
 			<div class="col-md-7 col-lg-8">
-				<h4 class="mb-3">Student data</h4>
-				<form class="needs-validation" novalidate="">
+				<div class="container-fluid">
 					<div class="row g-3">
-						<div class="col-4">
-							<label for="username" class="form-label">User full name</label>
-							<div class="input-group">
-								<input disabled type="text" class="form-control disabled" id="username" placeholder="<%= user.usual_full_name %>"
-									required="">
+						<h4 class="display-6 mb-3 pt-3">Completed projects</h4>
+		
+						<% for (let i = 0; i < projects.length; i++) { %>
+							<div class="col-5 m-3 p-3 bg-primary rounded">
+								<h2 class="text-body-emphasis">
+									<%= projects[i].name %>
+								</h2>
+								<p class="blog-post-meta">Estimated time: <%= projects[i].project_sessions[0].estimate_time %>
+								</p>
+								<p>
+									<%= projects[i].project_sessions[0].description %>
+								</p>
+								<ul>
+									<% for (let j = 0; j < projects[i].project_sessions[0].objectives.length; j++) { %>
+										<li><%= projects[i].project_sessions[0].objectives[j] %></li>
+									<% } %>
+								</ul>
 							</div>
-						</div>
-
-						<div class="col-2">
-							<label for="username" class="form-label">Username</label>
-							<div class="input-group has-validation">
-								<span class="input-group-text">@</span>
-								<input disabled type="text" class="form-control " id="username" placeholder="<%= user.login %>"
-									required="">
-							</div>
-						</div>
-
-						<div class="col-2">
-							<label for="campus" class="form-label">Campus</label>
-							<div class="input-group has-validation">
-								<input disabled type="text" class="form-control " id="campus" placeholder="<%= user.campus[0].name %>"
-									required="">
-							</div>
-						</div>
-
-						<div class="col-4">
-							<label for="email" class="form-label">Email <span
-									class="text-body-secondary">(Optional)</span></label>
-							<input disabled type="email" class="form-control" id="email" placeholder="<%= user.email %>">
-						</div>
-
-						<h4 class="col-12">Completed projects</h4>
-
-						<% for (let i = user.projects_users.length - 1; i >= 0; i--) { %>
-							<% if (user.projects_users[i].cursus_ids[0] == 21 && user.projects_users[i]['validated?']) { %>
-								<div class="col-4">
-									<label for="address" class="form-label">Project</label>
-									<input disabled type="text" class="form-control" id="address" placeholder="<%= user.projects_users[i].project.name %> <%= user.projects_users[i].status %>" required="">
-								</div>
-							<% } %>
 						<% } %>
 					</div>
-				</form>
+					<div class="row g-3">
+						<h4 class="display-6 mb-3 pt-3">User achievements</h4>
+	
+						<% for (let i = 0; i < user.achievements.length; i++) { %>
+							<div class="col-2">
+								<img class="bd-placeholder-img mb-3" src="https://api.intra.42.fr<%= user.achievements[i].image %>" width="100" alt="achievement <%= user.achievements[i].id %>" data-bs-toggle="tooltip" data-bs-title="<%= user.achievements[i].description %>" >
+								<h5 class="fw-normal"><%= user.achievements[i].name %></h2>
+							</div>
+						<% } %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>	

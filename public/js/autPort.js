@@ -1,3 +1,6 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
 async function getCookies()
 {
 	if (!document.cookie.includes('access_token'))
